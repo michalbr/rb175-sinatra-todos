@@ -1,0 +1,15 @@
+<ul id="lists">
+  <% sort_lists(@lists) do |list, idx| %>
+    <li class="<%= list_class(list) %>">
+      <a href="/lists/<%= idx %>">
+        <h2><%= list[:name] %></h2>
+        <p><%= not_completed_todos_count(list) %> /
+          <%= todos_count(list) %></p>
+      </a>
+    </li>
+  <% end %>
+</ul>
+
+<% content_for :header_links do %>
+  <a href="/lists/new" class="add">New List</a>
+<% end %>
